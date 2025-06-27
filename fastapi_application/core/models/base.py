@@ -13,7 +13,6 @@ class Base(DeclarativeBase):
         naming_convention=settings.db.naming_convention,
     )
 
-    @declared_attr
+    @declared_attr # type: ignore
     def __tablename__(cls) -> str: # pylint: disable=no-self-argument
         return f"{camel_case_to_snake_case(cls.__name__)}s"
-    
