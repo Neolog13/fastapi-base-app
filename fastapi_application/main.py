@@ -1,4 +1,5 @@
 """main filе"""
+
 from contextlib import asynccontextmanager
 import uvicorn
 from fastapi import FastAPI
@@ -13,10 +14,11 @@ from fastapi_application.core.models import db_helper
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    #startup
+    # startup
     yield
-    #shutdown
+    # shutdown
     await db_helper.dispose()
+
 
 main_app = FastAPI(
     default_response_class=ORJSONResponse,
@@ -34,4 +36,4 @@ if __name__ == "__main__":
         host=settings.run.host,
         port=settings.run.port,
         reload=True,
-)
+    )
