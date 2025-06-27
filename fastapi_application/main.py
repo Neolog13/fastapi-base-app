@@ -13,7 +13,7 @@ from fastapi_application.core.models import db_helper
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI): # pylint: disable=unused-argument
     # startup
     yield
     # shutdown
